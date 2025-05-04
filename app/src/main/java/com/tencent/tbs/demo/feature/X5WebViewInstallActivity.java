@@ -34,7 +34,9 @@ public class X5WebViewInstallActivity extends BaseWebViewActivity {
         String path = internalStorage.getAbsolutePath();
         copyAssetsToSDCard(this, "tbs", path + "/tbs");
         if (!QbSdk.isTbsCoreInited()) {
-            QbSdk.installLocalTbsCore(this, 46904, path + "/tbs" + "/tbs_core_046904_20231225151606_nolog_fs_obfs_armeabi_release.tbs");
+            if (!QbSdk.isTbsCoreInstalled()) {
+                QbSdk.installLocalTbsCore(this, 46904, path + "/tbs" + "/tbs_core_046904_20231225151606_nolog_fs_obfs_armeabi_release.tbs");
+            }
         }
         startDefinedUrl();
     }
