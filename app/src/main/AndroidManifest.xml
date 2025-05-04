@@ -47,6 +47,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".feature.X5WebViewActivity" />
+        <activity android:name=".feature.X5WebViewInstallActivity" />
         <activity android:name=".feature.SystemWebViewActivity" />
         <activity android:name=".feature.WebKitWebViewActivity" />
         <activity android:name=".feature.X5FeatureActivity" />
