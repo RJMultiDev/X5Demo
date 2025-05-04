@@ -5,6 +5,7 @@ import com.tencent.tbs.demo.feature.VideoActivity;
 import com.tencent.tbs.demo.feature.WebKitWebViewActivity;
 import com.tencent.tbs.demo.feature.WebProcessActivity;
 import com.tencent.tbs.demo.feature.X5WebViewActivity;
+import com.tencent.tbs.demo.feature.X5WebViewInstallActivity;
 
 public class FeatureManager {
 
@@ -14,6 +15,7 @@ public class FeatureManager {
     public static final FeatureItem[] featureItems = {
             makeHeader("基础功能"),
             makeItem("X5 WebView", X5WebViewActivity.class),
+            makeItem("安装X5内核能力 46904", X5WebViewInstallActivity.class),
             makeItem("SDK SysWebView", SystemWebViewActivity.class),
             makeItem("纯 Webkit WebView", WebKitWebViewActivity.class),
             makeHeader("网页具体功能"),
