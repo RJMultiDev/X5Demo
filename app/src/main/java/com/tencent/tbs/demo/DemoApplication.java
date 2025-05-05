@@ -30,11 +30,12 @@ public class DemoApplication extends Application {
         }
 
         /* 设置允许移动网络下进行内核下载。默认不下载，会导致部分一直用移动网络的用户无法使用x5内核 */
-        QbSdk.setDownloadWithoutWifi(true);
+        //QbSdk.setDownloadWithoutWifi(true);
 
         QbSdk.setCoreMinVersion(QbSdk.CORE_VER_ENABLE_202112);
         /* SDK内核初始化周期回调，包括 下载、安装、加载 */
-
+        File invalidDir = new File("/dev/null");
+        QbSdk.setDownloadPath(invalidDir.getAbsolutePath());
         QbSdk.setTbsListener(new TbsListener() {
 
             /**
