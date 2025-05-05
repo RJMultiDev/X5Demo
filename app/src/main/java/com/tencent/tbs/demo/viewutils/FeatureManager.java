@@ -14,10 +14,9 @@ public class FeatureManager {
 
     public static final FeatureItem[] featureItems = {
             makeHeader("基础功能"),
-            makeItem("X5 WebView", X5WebViewActivity.class),
-            makeItem("安装X5内核能力 46904", X5WebViewInstallActivity.class),
-            makeItem("SDK SysWebView", SystemWebViewActivity.class),
-            makeItem("纯 Webkit WebView", WebKitWebViewActivity.class),
+            makeItem("X5浏览器", X5WebViewActivity.class),
+            makeItem("系统webviewA", SystemWebViewActivity.class),
+            makeItem("系统webviewB", WebKitWebViewActivity.class),
             makeHeader("网页具体功能"),
             makeItem("全屏播放", VideoActivity.class, "file:///android_asset/webpage/fullscreenVideo.html"),
             makeItem("JS交互", X5WebViewActivity.class, "file:///android_asset/webpage/JSExamplePage.html"),
