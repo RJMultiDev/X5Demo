@@ -63,9 +63,10 @@ public class DemoApplication extends Application {
             }
         });
         File internalStorage = this.getFilesDir();
+        Context appContext = getApplicationContext();
         String path = internalStorage.getAbsolutePath();
         if (!QbSdk.isTbsCoreInited()) {
-            if (QbSdk.getTbsVersion(context) <= 0) {
+            if (QbSdk.getTbsVersion(appContext) <= 0) {
                 copyAssetsToSDCard(this, "tbs", path + "/tbs");
                 QbSdk.installLocalTbsCore(this, 46904, path + "/tbs" + "/tbs_core_046904_20231225151606_nolog_fs_obfs_armeabi_release.tbs");
             }
