@@ -34,8 +34,7 @@ public class DemoApplication extends Application {
 
         QbSdk.setCoreMinVersion(QbSdk.CORE_VER_ENABLE_202112);
         /* SDK内核初始化周期回调，包括 下载、安装、加载 */
-        File invalidDir = new File("/dev/null");
-        QbSdk.setDownloadPath(invalidDir.getAbsolutePath());
+
         QbSdk.setTbsListener(new TbsListener() {
 
             /**
