@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    //implementation fileTree(dir: 'libs', include: ['*.so'])
+    implementation fileTree(dir: 'libs', include: ['*.so'])
 
     implementation 'com.tencent.tbs:tbssdk:44226'
 
