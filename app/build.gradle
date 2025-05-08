@@ -29,9 +29,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
+sourceSets {
+        main{
+            jniLibs.srcDirs = ['jniLibs']
+        }
+    }
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.so'])
+    implementation fileTree(dir: 'jniLibs/armeabi-v7a', include: ['*.so'])
 
     implementation 'com.tencent.tbs:tbssdk:44226'
 
