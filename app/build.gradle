@@ -14,6 +14,14 @@ android {
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        config {
+            storeFile file('testkey.jks')
+            storePassword 'android'
+            keyPassword 'android'
+            keyAlias 'key'
+        }
+    }
     sourceSets {
         main{
             jniLibs.srcDirs = ['jniLibs']
