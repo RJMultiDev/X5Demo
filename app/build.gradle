@@ -6,7 +6,7 @@ android {
     namespace "com.tencent.tbs.demo"
     defaultConfig {
         applicationId "rj.browser"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
