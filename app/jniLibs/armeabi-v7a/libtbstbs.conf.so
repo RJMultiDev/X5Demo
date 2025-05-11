@@ -1,0 +1,10 @@
+#Mon Dec 25 15:16:43 CST 2023
+build_version_release_max_supported=4.4.4
+tbs_shell_target_version=62
+android_sdk_min_supported=14
+android_sdk_max_supported=34
+tbs_core_build_number=20231225151606
+build_version_release_min_support="4"
+cookies_database_version=9
+build_version_release_max_support="14"
+tbs_core_version=046904
