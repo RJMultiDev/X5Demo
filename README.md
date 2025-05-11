@@ -1,3 +1,3 @@
-<h1 align="center">TBS SDK Demo</h1>
+<h1 align="center">RJ Browser(Beta)</h1>
 
-这屁都不是 就一个能加载46294（109）内核的demo 还跑不起来本地安装😭😭😭
+一个流畅好用的浏览器，在开发了！
