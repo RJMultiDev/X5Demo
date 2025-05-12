@@ -1,11 +1,6 @@
 package com.tencent.tbs.demo.viewutils;
 
-import com.tencent.tbs.demo.feature.SystemWebViewActivity;
-import com.tencent.tbs.demo.feature.VideoActivity;
-import com.tencent.tbs.demo.feature.WebKitWebViewActivity;
-import com.tencent.tbs.demo.feature.WebProcessActivity;
 import com.tencent.tbs.demo.feature.X5WebViewActivity;
-import com.tencent.tbs.demo.feature.X5WebViewInstallActivity;
 
 public class FeatureManager {
 
@@ -13,16 +8,10 @@ public class FeatureManager {
     public static final int TYPE_SEPARATOR = 1;
 
     public static final FeatureItem[] featureItems = {
-            makeHeader("基础功能"),
-            makeItem("X5浏览器", X5WebViewActivity.class),
-            makeItem("系统webviewA", SystemWebViewActivity.class),
-            makeItem("系统webviewB", WebKitWebViewActivity.class),
+            makeHeader("RJ浏览器"),
+            makeItem("浏览器", X5WebViewActivity.class),
             makeHeader("网页具体功能"),
-            makeItem("全屏播放", VideoActivity.class, "file:///android_asset/webpage/fullscreenVideo.html"),
-            makeItem("JS交互", X5WebViewActivity.class, "file:///android_asset/webpage/JSExamplePage.html"),
-            makeItem("TBS Debug", X5WebViewActivity.class, "file:///android_asset/webpage/coreLoadDebugPage.html"),
-            makeHeader("高级能力"),
-            makeItem("独立Web进程", WebProcessActivity.class, "file:///android_asset/webpage/WebProcessDebugPage.html")
+            makeItem("测试001", X5WebViewActivity.class, "file:///android_asset/webpage/coreLoadDebugPage.html"),
     };
 
     public static class FeatureItem {
