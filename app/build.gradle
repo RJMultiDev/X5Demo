@@ -3,10 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 31
     buildToolsVersion "28.0.3"
-    namespace "com.tencent.tbs.demo"
     defaultConfig {
-        applicationId "rj.browser"
-        minSdkVersion 14
+        applicationId "com.tencent.tbs.demo"
+        minSdkVersion 16
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
