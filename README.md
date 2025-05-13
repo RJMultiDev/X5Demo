@@ -1,3 +1,3 @@
-<h1 align="center">TBS SDK Demo</h1>
+<h1 align="center">氢竹浏览器</h1>
 
-这屁都不是 就一个能加载46294（109）内核的demo 还跑不起来本地安装😭😭😭
+#开发中：全新浏览器，腕上赋能
