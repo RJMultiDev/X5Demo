@@ -270,7 +270,7 @@ public class BaseWebViewActivity extends AppCompatActivity {
 
             @JavascriptInterface
             public void openWebkit() {
-                startActivity(new Intent(context, SystemWebViewActivity.class));
+
             }
 
 
