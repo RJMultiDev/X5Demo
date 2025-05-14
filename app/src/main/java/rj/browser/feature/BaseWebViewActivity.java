@@ -1,9 +1,9 @@
-package com.tencent.tbs.demo.feature;
+package rj.browser.feature;
 
-import static com.tencent.tbs.demo.utils.PermissionUtil.REQUEST_EXTERNAL_STORAGE;
-import static com.tencent.tbs.demo.utils.PermissionUtil.REQUEST_GEOLOCATION;
-import static com.tencent.tbs.demo.utils.PermissionUtil.verifyLocationPermissions;
-import static com.tencent.tbs.demo.utils.PermissionUtil.verifyStoragePermissions;
+import static rj.browser.utils.PermissionUtil.REQUEST_EXTERNAL_STORAGE;
+import static rj.browser.utils.PermissionUtil.REQUEST_GEOLOCATION;
+import static rj.browser.utils.PermissionUtil.verifyLocationPermissions;
+import static rj.browser.utils.PermissionUtil.verifyStoragePermissions;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -42,8 +42,8 @@ import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
-import com.tencent.tbs.demo.R;
-import com.tencent.tbs.demo.utils.WebViewJavaScriptFunction;
+import rj.browser.R;
+import rj.browser.utils.WebViewJavaScriptFunction;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;

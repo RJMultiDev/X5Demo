@@ -1,4 +1,4 @@
-package com.tencent.tbs.demo.utils;
+package rj.browser.utils;
 
 import android.app.Service;
 import android.content.Intent;

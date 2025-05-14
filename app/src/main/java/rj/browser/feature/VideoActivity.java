@@ -1,4 +1,4 @@
-package com.tencent.tbs.demo.feature;
+package rj.browser.feature;
 
 import android.content.pm.ActivityInfo;
 import android.view.View;

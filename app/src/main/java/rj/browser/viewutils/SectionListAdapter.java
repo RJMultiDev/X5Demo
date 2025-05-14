@@ -1,4 +1,4 @@
-package com.tencent.tbs.demo.viewutils;
+package rj.browser.viewutils;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.tencent.tbs.demo.R;
+import rj.browser.R;
 import java.util.ArrayList;
 import java.util.TreeSet;
 

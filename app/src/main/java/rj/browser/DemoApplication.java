@@ -1,4 +1,4 @@
-package com.tencent.tbs.demo;
+package rj.browser;
 
 
 import android.app.Application;
@@ -173,7 +173,7 @@ public class DemoApplication extends Application {
         WebView.setDataDirectorySuffix(QbSdk.getCurrentProcessName(this));
         Log.i(TAG, currentProcessName);
         if (currentProcessName.equals(this.getPackageName())) {
-            this.startService(new Intent(this, com.tencent.tbs.demo.utils.X5ProcessInitService.class));
+            this.startService(new Intent(this, rj.browser.utils.X5ProcessInitService.class));
             return true;
         }
         return false;

@@ -1,4 +1,4 @@
-package com.tencent.tbs.demo;
+package rj.browser;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.tencent.tbs.demo.viewutils.FeatureManager;
-import com.tencent.tbs.demo.viewutils.FeatureManager.FeatureItem;
-import com.tencent.tbs.demo.viewutils.SectionListAdapter;
+import rj.browser.viewutils.FeatureManager;
+import rj.browser.viewutils.FeatureManager.FeatureItem;
+import rj.browser.viewutils.SectionListAdapter;
 
 
 public class NavigationActivity extends AppCompatActivity {

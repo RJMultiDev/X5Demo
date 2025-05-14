@@ -1,6 +1,6 @@
-package com.tencent.tbs.demo.viewutils;
+package rj.browser.viewutils;
 
-import com.tencent.tbs.demo.feature.X5WebViewActivity;
+import rj.browser.feature.X5WebViewActivity;
 
 public class FeatureManager {
 
