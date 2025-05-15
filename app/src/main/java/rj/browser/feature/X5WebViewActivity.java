@@ -1,4 +1,4 @@
-package com.tencent.tbs.demo.feature;
+package rj.browser.feature;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import androidx.appcompat.widget.PopupMenu;
 import com.tencent.smtt.export.external.extension.proxy.ProxyWebViewClientExtension;
 import com.tencent.smtt.export.external.interfaces.ISelectionInterface;
 import com.tencent.smtt.sdk.QbSdk;
-import com.tencent.tbs.demo.R;
+import rj.browser.R;
 
 public class X5WebViewActivity extends BaseWebViewActivity {
 

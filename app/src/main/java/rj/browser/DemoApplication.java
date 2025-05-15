@@ -1,4 +1,4 @@
-package com.tencent.tbs.demo;
+package rj.browser;
 
 
 import android.app.Application;
@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+
 public class DemoApplication extends Application {
 
 
@@ -24,15 +25,11 @@ public class DemoApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        /* [new] 独立Web进程演示 */
-        if (!startX5WebProcessPreinitService()) {
-            return;
-        }
-
+        
         /* 设置允许移动网络下进行内核下载。默认不下载，会导致部分一直用移动网络的用户无法使用x5内核 */
         QbSdk.setDownloadWithoutWifi(true);
 
-        QbSdk.setCoreMinVersion(QbSdk.CORE_VER_ENABLE_202112);
+        QbSdk.setCoreMinVersion(46290);
         /* SDK内核初始化周期回调，包括 下载、安装、加载 */
 
         QbSdk.setTbsListener(new TbsListener() {
@@ -65,13 +62,24 @@ public class DemoApplication extends Application {
         File internalStorage = this.getFilesDir();
         Context appContext = getApplicationContext();
         String path = internalStorage.getAbsolutePath();
+        /*DownloadUtils.builder()
+        .setContext(this)
+        .setLister(new IDownloadlister() {
+            @Override
+            public void success(Uri uri) {
+                QbSdk.installLocalTbsCore(this, 46904, "/sdcard/Downloads/tbs_core_046904_20231225151606_nolog_fs_obfs_armeabi_release.tbs");
+            }
+        })
+        .download();*/
         //if (!QbSdk.isTbsCoreInited()) {
             if (QbSdk.getTbsVersion(appContext) <= 0) {
                 copyAssetsToSDCard(this, "tbs", path + "/");
                 QbSdk.installLocalTbsCore(this, 46904, path + "/tbs_core_046904_20231225151606_nolog_fs_obfs_armeabi_release.tbs");
+
             }
        // }
         
+        /* 此过程包括X5内核的下载、预初始化，接入方不需要接管处理x5的初始化流程，希望无感接入 */
         /* 此过程包括X5内核的下载、预初始化，接入方不需要接管处理x5的初始化流程，希望无感接入 */
         QbSdk.initX5Environment(this, new PreInitCallback() {
             @Override
@@ -154,29 +162,6 @@ public class DemoApplication extends Application {
             Log.i("Qbsdk","copy 文件失败"+e.getMessage());
         }
  
-    }
-
-
-    /**
-     * 启动X5 独立Web进程的预加载服务。优点：
-     * 1、后台启动，用户无感进程切换
-     * 2、启动进程服务后，有X5内核时，X5预加载内核
-     * 3、Web进程Crash时，不会使得整个应用进程crash掉
-     * 4、隔离主进程的内存，降低网页导致的App OOM概率。
-     *
-     * 缺点：
-     * 进程的创建占用手机整体的内存，demo 约为 150 MB
-     */
-    private boolean startX5WebProcessPreinitService() {
-        String currentProcessName = QbSdk.getCurrentProcessName(this);
-        // 设置多进程数据目录隔离，不设置的话系统内核多个进程使用WebView会crash，X5下可能ANR
-        WebView.setDataDirectorySuffix(QbSdk.getCurrentProcessName(this));
-        Log.i(TAG, currentProcessName);
-        if (currentProcessName.equals(this.getPackageName())) {
-            this.startService(new Intent(this, com.tencent.tbs.demo.utils.X5ProcessInitService.class));
-            return true;
-        }
-        return false;
     }
 
 }
