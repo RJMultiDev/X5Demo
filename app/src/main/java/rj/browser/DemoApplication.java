@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+
 public class DemoApplication extends Application {
 
 
@@ -28,7 +29,7 @@ public class DemoApplication extends Application {
         /* 设置允许移动网络下进行内核下载。默认不下载，会导致部分一直用移动网络的用户无法使用x5内核 */
         QbSdk.setDownloadWithoutWifi(true);
 
-        QbSdk.setCoreMinVersion(QbSdk.CORE_VER_ENABLE_202112);
+        QbSdk.setCoreMinVersion(46290);
         /* SDK内核初始化周期回调，包括 下载、安装、加载 */
 
         QbSdk.setTbsListener(new TbsListener() {
@@ -61,33 +62,25 @@ public class DemoApplication extends Application {
         File internalStorage = this.getFilesDir();
         Context appContext = getApplicationContext();
         String path = internalStorage.getAbsolutePath();
+        /*DownloadUtils.builder()
+        .setContext(this)
+        .setLister(new IDownloadlister() {
+            @Override
+            public void success(Uri uri) {
+                QbSdk.installLocalTbsCore(this, 46904, "/sdcard/Downloads/tbs_core_046904_20231225151606_nolog_fs_obfs_armeabi_release.tbs");
+            }
+        })
+        .download();*/
         //if (!QbSdk.isTbsCoreInited()) {
             if (QbSdk.getTbsVersion(appContext) <= 0) {
                 copyAssetsToSDCard(this, "tbs", path + "/");
                 QbSdk.installLocalTbsCore(this, 46904, path + "/tbs_core_046904_20231225151606_nolog_fs_obfs_armeabi_release.tbs");
+
             }
        // }
         
         /* 此过程包括X5内核的下载、预初始化，接入方不需要接管处理x5的初始化流程，希望无感接入 */
-        QbSdk.initX5Environment(this, new PreInitCallback() {
-            @Override
-            public void onCoreInitFinished() {
-                // 内核初始化完成，可能为系统内核，也可能为系统内核
-            }
-
-            /**
-             * 预初始化结束
-             * 由于X5内核体积较大，需要依赖wifi网络下发，所以当内核不存在的时候，默认会回调false，此时将会使用系统内核代替
-             * 内核下发请求发起有24小时间隔，卸载重装、调整系统时间24小时后都可重置
-             * 调试阶段建议通过 WebView 访问 debugtbs.qq.com -> 安装线上内核 解决
-             * @param isX5 是否使用X5内核
-             */
-            @Override
-            public void onViewInitFinished(boolean isX5) {
-                Log.i(TAG, "onViewInitFinished: " + isX5);
-                // hint: you can use QbSdk.getX5CoreLoadHelp(context) anytime to get help.
-            }
-        });
+        
     }
     
     public static void copyAssetsToSDCard(Context context, String sourceFolder, String destinationFolder) {
