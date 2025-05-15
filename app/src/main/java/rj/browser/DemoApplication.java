@@ -80,7 +80,26 @@ public class DemoApplication extends Application {
        // }
         
         /* 此过程包括X5内核的下载、预初始化，接入方不需要接管处理x5的初始化流程，希望无感接入 */
-        
+        /* 此过程包括X5内核的下载、预初始化，接入方不需要接管处理x5的初始化流程，希望无感接入 */
+        QbSdk.initX5Environment(this, new PreInitCallback() {
+            @Override
+            public void onCoreInitFinished() {
+                // 内核初始化完成，可能为系统内核，也可能为系统内核
+            }
+
+            /**
+             * 预初始化结束
+             * 由于X5内核体积较大，需要依赖wifi网络下发，所以当内核不存在的时候，默认会回调false，此时将会使用系统内核代替
+             * 内核下发请求发起有24小时间隔，卸载重装、调整系统时间24小时后都可重置
+             * 调试阶段建议通过 WebView 访问 debugtbs.qq.com -> 安装线上内核 解决
+             * @param isX5 是否使用X5内核
+             */
+            @Override
+            public void onViewInitFinished(boolean isX5) {
+                Log.i(TAG, "onViewInitFinished: " + isX5);
+                // hint: you can use QbSdk.getX5CoreLoadHelp(context) anytime to get help.
+            }
+        });
     }
     
     public static void copyAssetsToSDCard(Context context, String sourceFolder, String destinationFolder) {
